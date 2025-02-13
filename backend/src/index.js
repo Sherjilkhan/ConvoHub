@@ -24,6 +24,11 @@ app.use(
 );
 
 mongoose.connect('mongodb+srv://khansherjil9217:oVcZkRttouSDn0Ff@cluster0.ov52o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+
+app.get("/", (req, res)=>{
+  res.json("COnvoHub is Running")
+})
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
