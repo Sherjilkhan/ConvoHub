@@ -7,6 +7,7 @@ import messageRoutes from "./routes/message_route.js";
 import cors from "cors";
 import { app, server} from "./lib/socket.js";
 import path from "path"
+import mongoose from "mongoose";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
@@ -16,11 +17,13 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://convohub-one.vercel.app/",
+    methods:["POST", "GET"],
     credentials: true,
   })
 );
 
+mongoose.connect('mongodb+srv://khansherjil9217:oVcZkRttouSDn0Ff@cluster0.ov52o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
