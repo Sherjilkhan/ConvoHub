@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Bot_header from "./Bot_header";
 import { Send, SmilePlus } from "lucide-react";
 import "../style.css"
@@ -9,7 +9,7 @@ const Bot_chatcontainer_ = () => {
   const [botTyping, setBotTyping] = useState(false); // Track bot typing status
   const [emojiPickerVisible, setEmojiPickerVisible] = useState(false); // Control emoji picker visibility
   const inputRef = useRef(null);
-
+  const messageEndRef = useRef(null);
   const API_KEY = "AIzaSyAVr8tAVFQZpGlKTXVh5Cty7x8FIIQnsRw";
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
@@ -55,13 +55,17 @@ const Bot_chatcontainer_ = () => {
     setText((prevText) => prevText + emoji);
     setEmojiPickerVisible(false); // Hide emoji picker after selection
   };
-
+  useEffect(()=>{
+    if (messageEndRef.current&&messages) {
+      messageEndRef.current.scrollIntoView({behavior:"smooth"});
+    }
+  },[messages]);
   return (
     <div className="flex-1 flex flex-col overflow-auto ">
       <Bot_header />
 
       {/* Chat Body */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 chatbox">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 chatbox c">
         <div className="chat chat-start">
           <div className="chat-bubble flex flex-col">
             Hello there! I'm Nova, your friendly chatbot. 🌟 I'm here to make
@@ -76,14 +80,18 @@ const Bot_chatcontainer_ = () => {
             key={index}
             className={`chat ${msg.sender === "user" ? "chat-end" : "chat-start"}`}
           >
-            <div className="chat-bubble flex flex-col">{msg.text}</div>
+            <div className="chat-bubble flex flex-col c" style={{whiteSpace:"pre-line"}}>{msg.text}</div>
           </div>
         ))}
         {botTyping && (
-          <div className="chat chat-start bg-gray-300 text-black self-start mr-auto p-2 rounded-lg">
-            Bot is typing...
+          <div className="chat chat-start ">
+          <div className="chat-bubble flex flex-col ">
+          Bot is typing...
+          </div>
           </div>
         )}
+        <div ref={messageEndRef} />
+
       </div>
 
       {/* Message Input */}{emojiPickerVisible && (

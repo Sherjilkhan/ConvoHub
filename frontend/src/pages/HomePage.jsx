@@ -7,7 +7,7 @@ import "../style.css"
 
 import Bot_chatcontainer_ from "../ChatBot_component/Bot_chatcontainer_";
 const HomePage = () => {
-  const { selectedUser, getBot } = useChatStore();
+  const { selectedUser, getBot, sidebar } = useChatStore();
 
   return (
     <div className="h-screen bg-base-20 ">
