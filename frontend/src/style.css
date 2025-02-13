@@ -19,6 +19,9 @@
     display: none;
 }
 
+  
+
+
 @keyframes slideRightIn {
     from{
         transform: translateX(-500px);
