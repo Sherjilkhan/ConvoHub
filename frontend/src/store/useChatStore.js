@@ -5,6 +5,7 @@ import { useAuthStore } from "./useAuthStore";
 import axios from "axios"
 const API_KEY = "AIzaSyCXZQ_D-472ApZOP5jSg7CH9OI4l3tnH2Y";
 const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
 export const useChatStore = create((set, get) => ({
   messages: [],
   users: [],

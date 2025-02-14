@@ -86,7 +86,7 @@ const Bot_chatcontainer_ = () => {
         {botTyping && (
           <div className="chat chat-start ">
           <div className="chat-bubble flex flex-col ">
-          Bot is typing...
+          <span className="loading loading-dots loading-md"></span>
           </div>
           </div>
         )}
