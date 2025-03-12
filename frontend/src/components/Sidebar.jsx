@@ -4,8 +4,6 @@ import { useAuthStore } from "../store/useAuthStore";
 import SidebarSkeleton from "./skeletons/SidebarSkeleton";
 import { Users } from "lucide-react";
 import "../style.css";
-import avatar from "../assets/avatar.png";
-import Nova from "../assets/nova.png";
 
 
 
@@ -70,7 +68,7 @@ const Sidebar = () => {
       <div className="overflow-y-auto w-full py-3 sidebar">
       <button onClick={()=>startChatWBot()} className="badge w-full p-9 flex items-center justify-start gap-3 hover:bg-base-300 transition-colors ">
             <div className="relative mx-auto lg:mx-0">
-              <img src={ Nova} alt={""} className="size-12 object-cover rounded-full" />
+              <img src={"/nova.png"} alt={""} className="size-12 object-cover rounded-full" />
             </div>
             <div className="hidden lg:block text-left min-w-0">
               <div className="font-medium truncate">Nova</div>  
@@ -92,7 +90,7 @@ const Sidebar = () => {
           >
             <div className="relative mx-auto lg:mx-0">
               <img
-                src={user.profilePic ||avatar}
+                src={user.profilePic ||"/avatar.png"}
                 alt={user.name}
                 className="size-12 object-cover rounded-full"
               />

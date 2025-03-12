@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { useChatStore } from "../store/useChatStore";
-import Nova from "../assets/nova.png";
+
 const Bot_header = () => {
   const {  EndChatWBot } = useChatStore();
 
@@ -11,7 +11,7 @@ const Bot_header = () => {
           {/* Avatar */}
           <div className="avatar">
             <div className="size-10 rounded-full relative">
-              <img src={Nova} alt={""} />
+              <img src={"/nova.png"} alt={""} />
             </div>
           </div>
 
