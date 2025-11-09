@@ -10,7 +10,7 @@ const Bot_chatcontainer_ = () => {
   const [emojiPickerVisible, setEmojiPickerVisible] = useState(false); // Control emoji picker visibility
   const inputRef = useRef(null);
   const messageEndRef = useRef(null);
-  const API_KEY = "AIzaSyAVr8tAVFQZpGlKTXVh5Cty7x8FIIQnsRw";
+  const API_KEY = "AIzaSyAuPPWAChsL1kdLZ4NUOyfRqG7TeglkVmU";
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
   const handleOutgoingMessage = async (e) => {

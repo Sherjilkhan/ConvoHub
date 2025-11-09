@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth_route.js";
 import messageRoutes from "./routes/message_route.js";
-import cors from "cors";
+import cors from "cors"; 
 import { app, server} from "./lib/socket.js";
 import path from "path"
 dotenv.config();
@@ -35,3 +35,4 @@ server.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
   connectDB();
 });
+ 
